@@ -19,8 +19,9 @@
                      小红书网页（真实登录态，Cookie 存在 browser-profile/）
 ```
 
-- **抓取方式**：让页面自己走一遍搜索/打开笔记，然后把小红书前端自己请求的那几个接口的 JSON
-  （`/api/sns/web/v1/search/notes`、`/v1/feed`、`/v2/comment/page`）截下来。
+- **抓取方式**：让页面自己走一遍搜索/打开笔记，然后把小红书前端自己请求的那几个接口的 JSON 截下来
+  （2026-10 实测：搜索在 `so.xiaohongshu.com/api/sns/web/v2/search/notes`，评论在 `edith…/v2/comment/page`；
+  **笔记正文不在接口里**，是 SSR 直接塞进 `window.__INITIAL_STATE__.note.noteDetailMap[<id>].note` 的）。
   比逐条点开抄 DOM 稳得多（改版不影响）、也快得多。三级兜底：接口 JSON → `__INITIAL_STATE__` → DOM 文本。
 - **必须 headful**：无头浏览器会被小红书判成风险环境，直接回「安全限制 / IP存在风险 / 300012」。
   所以默认开一个**挪到屏幕外**的真实窗口（`--window-position=-2400,-2400`），你看不到但它是真窗口。
