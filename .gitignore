@@ -1,0 +1,28 @@
+# 依赖 / 构建产物
+node_modules/
+.pnpm-store/
+
+# 运行时数据（插件自己的家目录在 $DSH_HOME/xhs-duty/，万一有人拷进来也别提交）
+config.json
+risk.json
+risk-signals.jsonl
+login.json
+login.json.paused
+browser-profile/
+out/
+digest/
+seen.md
+duty.md.new
+*.log
+qrcode_login.png
+
+# 开发期临时物
+.ui-check/
+.ui-profile/
+.npm-cache/
+.preview*
+*.tmp
+e2e-result.json
+verify*.json
+login-result.json
+inspect*.json

@@ -1,0 +1,53 @@
+{
+  "name": "dsh-xhs-scroll",
+  "version": "0.1.0",
+  "description": "DSH 插件：每天替你刷一轮小红书 —— 按你填的方向搜、读笔记原文，提炼当日热点主题与事件，写成日报",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib",
+    "server",
+    "prompts",
+    "README.md",
+    "AGENTS.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.1.7-rc.1",
+    "node": ">=22"
+  },
+  "dependencies": {
+    "playwright-core": "^1.64.1",
+    "nodemailer": "^10.1.7"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llafztq/dsh-xhs-scroll.git"
+  },
+  "homepage": "https://github.com/llafztq/dsh-xhs-scroll#readme",
+  "bugs": {
+    "url": "https://github.com/llafztq/dsh-xhs-scroll/issues"
+  }
+}
